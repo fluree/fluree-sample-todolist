@@ -1,4 +1,5 @@
 import { XCircleIcon, PencilSquareIcon, CheckCircleIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon as SolidCheck } from '@heroicons/react/24/solid';
 import React, { useState } from 'react';
 
 interface TodoListProps {
@@ -33,8 +34,7 @@ const TodoList: React.FC<TodoListProps> = () => {
     setTodos(updatedTodos);
   };
 
-  // handle edit todo form submission and updates the todo label based on the input
-  const editTodo = (event: React.FormEvent<HTMLFormElement>) => {
+  const editTodoLabel = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const editTodoForm = event.target as HTMLFormElement;
     const input = editTodoForm.elements[0] as HTMLInputElement;
@@ -50,6 +50,19 @@ const TodoList: React.FC<TodoListProps> = () => {
     setTodos(updatedTodos);
     setEditing(undefined);
   };
+
+  const toggleTodoDone = (id: number) => {
+    const updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          isDone: !todo.isDone
+        };
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  }
   
   return (
     <main>
@@ -65,6 +78,8 @@ const TodoList: React.FC<TodoListProps> = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             {editing !== todo.id && (<>
+              {!todo.isDone && <CheckCircleIcon className="todo-icon todo-check-icon" onClick={() => toggleTodoDone(todo.id)}/>}
+              {todo.isDone && <SolidCheck className="todo-icon todo-check-icon todo-checked" onClick={() => toggleTodoDone(todo.id)}/>}
               <span className={todo.isDone ? "todo-done" : ""}>{todo.label}</span>
               <div className='todo-actions'>
                 <button className="edit-button" type="button" onClick={() => setEditing(todo.id)}>
@@ -76,7 +91,7 @@ const TodoList: React.FC<TodoListProps> = () => {
               </div>
             </>)}
             {editing === todo.id && (
-              <form className="edit-todo-form" onSubmit={editTodo}>
+              <form className="edit-todo-form" onSubmit={editTodoLabel}>
                 <input className="edit-input" type="text" id="editTodo" name="editTodo" defaultValue={todo.label} required />
                 <div className='todo-actions'>
                   <button className="edit-button" type="submit">

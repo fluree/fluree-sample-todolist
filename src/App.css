@@ -87,3 +87,15 @@
   height: 1.5em;
   padding: 5px 0;
 }
+
+.todo-check-icon:hover {
+  cursor: pointer;
+}
+
+.todo-checked {
+  color: #00A86B;
+}
+
+.todo-done {
+  text-decoration: line-through;
+}
