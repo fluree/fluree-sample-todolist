@@ -66,7 +66,7 @@ const TodoList: React.FC<TodoListProps> = () => {
   
   return (
     <main>
-      <h1 className="sr-only">Todos</h1>
+      <h1>Todos</h1>
       <form className="add-todo-form" onSubmit={addTodo}>
         <label htmlFor="todo">Enter Task</label>
         <input className="add-input" type="text" id="todo" name="todo" required />
