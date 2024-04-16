@@ -2,12 +2,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   margin: 0;
   background-color: #f5f5f5;
   padding: 20px;
+  font-size: 16px;
 }
 
 label {
@@ -16,17 +15,11 @@ label {
   margin-bottom: 5px;
 }
 
-.add-todo-form {
-  margin-bottom: 25px;
-}
-
 input[type="text"] {
   border: 1px solid #ccc;
   padding: 10px;
-  font-size: 16px;
-  width: 100%;
+  flex: 1;
   box-sizing: border-box;
-  margin-bottom: 10px;
   border-radius: 4px;
   outline-offset: 4px;
 }
@@ -35,7 +28,6 @@ button {
   background-color: black;
   border-radius: 4px;
   color: white;
-  padding: 10px 24px;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -45,10 +37,6 @@ button {
 
 button:hover {
   opacity: 0.8;
-}
-
-.delete-button {
-  flex: 0;
 }
 
 ul {

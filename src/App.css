@@ -2,7 +2,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -39,4 +38,52 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.add-todo-form {
+  width: 25em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.edit-todo-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-actions {
+  display: flex;
+  flex: 0;
+}
+
+.add-input {
+  margin-bottom: 10px;
+}
+.add-button {
+  padding: 10px 0;
+}
+
+.edit-input {
+  flex: 1 1 100px;
+  margin-right: 8px;
+}
+
+.edit-button {
+  margin-right: 5px;
+}
+
+.delete-button, .edit-button, .cancel-button {
+  flex: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-icon {
+  width: 1.5em;
+  height: 1.5em;
+  padding: 5px 0;
 }
