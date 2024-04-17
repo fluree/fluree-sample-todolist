@@ -97,6 +97,13 @@ li {
   color: #888;
 }
 
+.todo-header {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .add-todo-form {
   width: 25em;
   display: flex;

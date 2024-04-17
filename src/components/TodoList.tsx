@@ -1,72 +1,54 @@
-import { XCircleIcon, PencilSquareIcon, CheckCircleIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { v4 as uuid } from 'uuid';
+import { XCircleIcon, PencilSquareIcon, CheckCircleIcon, TrashIcon, CloudArrowDownIcon, CloudArrowUpIcon } from '@heroicons/react/24/outline';
 import { CheckCircleIcon as SolidCheck } from '@heroicons/react/24/solid';
 import React, { useState } from 'react';
+import { Todo, TodoListProps } from './types';
 
-interface TodoListProps {
-  // Define props here
-}
 
-type Todo = {
-  id: number;
-  label: string;
-  isDone: boolean;
-}
-
-const TodoList: React.FC<TodoListProps> = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [editing, setEditing] = useState<number>();
+const TodoList: React.FC<TodoListProps> = ({isQuerying, isTransacting, todos, upsertTodo, deleteTodo}) => {
+  const [editing, setEditing] = useState<string>();
 
   const addTodo = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const addTodoForm = event.target as HTMLFormElement;
     const input = addTodoForm.elements[0] as HTMLInputElement;
     const newTodo: Todo = {
-      id: todos.length === 0 ? 1 : Math.max(...todos.map(t => t.id)) + 1,
+      id: uuid(),
+      type: "Todo",
       label: input.value,
       isDone: false
     };
-    setTodos([...todos, newTodo]);
+    upsertTodo(newTodo);
     input.value = '';
-  };
-
-  const deleteTodo = (id: number) => {
-    const updatedTodos = todos.filter(todo => todo.id !== id);
-    setTodos(updatedTodos);
   };
 
   const editTodoLabel = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const editTodoForm = event.target as HTMLFormElement;
     const input = editTodoForm.elements[0] as HTMLInputElement;
-    const updatedTodos = todos.map(todo => {
-      if (todo.id === editing) {
-        return {
-          ...todo,
-          label: input.value
-        };
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
+    const todoToUpdate = todos.find(todo => todo.id === editing);
+    if (todoToUpdate) {
+      upsertTodo({ ...todoToUpdate, label: input.value });
+    }
     setEditing(undefined);
   };
 
-  const toggleTodoDone = (id: number) => {
-    const updatedTodos = todos.map(todo => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          isDone: !todo.isDone
-        };
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
+  const toggleTodoDone = (id: string) => {
+    const todoToUpdate = todos.find(todo => todo.id === id);
+    if (todoToUpdate) {
+      upsertTodo({ ...todoToUpdate, isDone: !todoToUpdate.isDone });
+    }
   }
   
   return (
     <main>
-      <h1>Todos</h1>
+      <div className='todo-header'>
+        <h1>Todos</h1>
+        <div>
+          {isQuerying && <CloudArrowDownIcon className='todo-icon'/>}
+          {isTransacting && <CloudArrowUpIcon className='todo-icon'/>}
+        </div>
+      </div>
       <form className="add-todo-form" onSubmit={addTodo}>
         <label htmlFor="todo">Enter Task</label>
         <input className="add-input" type="text" id="todo" name="todo" required />
