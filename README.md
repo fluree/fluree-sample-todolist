@@ -3,8 +3,8 @@
 This is an example Vite app (React+TS) that demonstrates how to use [`fluree-client`](https://github.com/fluree/fluree-client) in a front end web application in order to interface with a [Fluree Cloud](https://data.flur.ee/) dataset.
 
 
-### Try the app out with StackBlitz!
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/fluree/fluree-sample-todolist)
+### Try the app out with [StackBlitz](https://stackblitz.com/)!
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/fluree/fluree-sample-todolist?title=Fluree%20Todo%20List%20Sample&file=.env)
 > Note! After opening in StackBlitz, don't forget to update the `.env` file there as described in step 3 in the [Getting Started](#getting-started) below!
 
 # Fluree Cloud
