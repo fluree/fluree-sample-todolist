@@ -2,6 +2,8 @@
 
 This is an example Vite app (React+TS) that demonstrates how to use [`fluree-client`](https://github.com/fluree/fluree-client) in a front end web application in order to interface with a [Fluree Cloud](https://data.flur.ee/) dataset.
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/fluree/fluree-sample-todolist)
+
 # Fluree Cloud
 [Fluree Cloud](https://data.flur.ee/) is Fluree's hosted database-as-a-service that makes it easy to build on FlureeDB.  
 
