@@ -2,7 +2,10 @@
 
 This is an example Vite app (React+TS) that demonstrates how to use [`fluree-client`](https://github.com/fluree/fluree-client) in a front end web application in order to interface with a [Fluree Cloud](https://data.flur.ee/) dataset.
 
+
+### Try the app out with StackBlitz!
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/fluree/fluree-sample-todolist)
+> Note! After opening in StackBlitz, don't forget to update the `.env` file there as described in step 3 in the [Getting Started](#getting-started) below!
 
 # Fluree Cloud
 [Fluree Cloud](https://data.flur.ee/) is Fluree's hosted database-as-a-service that makes it easy to build on FlureeDB.  
@@ -22,10 +25,10 @@ There are just a few steps to getting this running on your machine:
    ```
    cd fluree-sample-todolist && npm install
    ```
-3. Create an environment file named `.env` that will hold variables for your Fluree Cloud dataset name and API Key (if you don't have a Fluree Cloud dataset yet, [see instructions above](#fluree-cloud))
+3. Update the environment file `.env` that holds the variables for your Fluree Cloud dataset name and API Key (if you don't have a Fluree Cloud dataset yet, [see instructions above](#fluree-cloud)). Here's a sample:
    ```
-   VITE_FLUREE_DB=<your-fluree-cloud-dataset-id-here>
-   VITE_FLUREE_API_KEY=<your-api-key-here>
+   VITE_FLUREE_DB=fluree-jld/387028092978413
+   VITE_FLUREE_API_KEY=zhN1...eR8Ug
    ```
 4. Start! Vite should spit out a localhost url that you can navigate to see the app.
    ```
