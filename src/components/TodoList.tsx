@@ -4,31 +4,43 @@ import { CheckCircleIcon as SolidCheck } from '@heroicons/react/24/solid';
 import React, { useState } from 'react';
 import { Todo, TodoListProps } from './types';
 
+interface AddTodoFormElements extends HTMLFormControlsCollection {
+  addTodoLabelInput: HTMLInputElement
+}
+interface AddTodoFormElement extends HTMLFormElement {
+  readonly elements: AddTodoFormElements;
+}
+
+interface EditTodoFormElements extends HTMLFormControlsCollection {
+  editTodoLabelInput: HTMLInputElement
+}
+interface EditTodoFormElement extends HTMLFormElement {
+  readonly elements: EditTodoFormElements;
+}
+
 
 const TodoList: React.FC<TodoListProps> = ({isQuerying, isTransacting, todos, upsertTodo, deleteTodo}) => {
   const [editing, setEditing] = useState<string>();
 
-  const addTodo = (event: React.FormEvent<HTMLFormElement>) => {
+  const addTodo = (event: React.FormEvent<AddTodoFormElement>) => {
     event.preventDefault();
-    const addTodoForm = event.target as HTMLFormElement;
-    const input = addTodoForm.elements[0] as HTMLInputElement;
+    const labelInput = event.currentTarget.elements.addTodoLabelInput;
     const newTodo: Todo = {
       id: uuid(),
       type: "Todo",
-      label: input.value,
+      label: labelInput.value,
       isDone: false
     };
     upsertTodo(newTodo);
-    input.value = '';
+    labelInput.value = '';
   };
 
-  const editTodoLabel = (event: React.FormEvent<HTMLFormElement>) => {
+  const editTodoLabel = (event: React.FormEvent<EditTodoFormElement>) => {
     event.preventDefault();
-    const editTodoForm = event.target as HTMLFormElement;
-    const input = editTodoForm.elements[0] as HTMLInputElement;
+    const labelInput = event.currentTarget.elements.editTodoLabelInput;
     const todoToUpdate = todos.find(todo => todo.id === editing);
     if (todoToUpdate) {
-      upsertTodo({ ...todoToUpdate, label: input.value });
+      upsertTodo({ ...todoToUpdate, label: labelInput.value });
     }
     setEditing(undefined);
   };
@@ -50,8 +62,8 @@ const TodoList: React.FC<TodoListProps> = ({isQuerying, isTransacting, todos, up
         </div>
       </div>
       <form className="add-todo-form" onSubmit={addTodo}>
-        <label htmlFor="todo">Enter Task</label>
-        <input className="add-input" type="text" id="todo" name="todo" required />
+        <label htmlFor="addTodoLabelInput">Enter Task</label>
+        <input className="add-input" type="text" id="addTodoLabelInput" name="addTodoLabelInput" required />
         <button className="add-button" type="submit">
           Add
         </button>
@@ -74,7 +86,7 @@ const TodoList: React.FC<TodoListProps> = ({isQuerying, isTransacting, todos, up
             </>)}
             {editing === todo.id && (
               <form className="edit-todo-form" onSubmit={editTodoLabel}>
-                <input className="edit-input" type="text" id="editTodo" name="editTodo" defaultValue={todo.label} required />
+                <input className="edit-input" type="text" id="editTodoLabelInput" name="editTodoLabelInput" defaultValue={todo.label} required />
                 <div className='todo-actions'>
                   <button className="edit-button" type="submit">
                     <CheckCircleIcon className="todo-icon" />
