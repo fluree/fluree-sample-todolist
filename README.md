@@ -3,9 +3,9 @@
 This is an example Vite app (React+TS) that demonstrates how to use [`fluree-client`](https://github.com/fluree/fluree-client) in a front end web application in order to interface with a [Fluree Cloud](https://data.flur.ee/) dataset.  
 This app relies on [`fluree-client`](https://github.com/fluree/fluree-client) to do the most basic functions a database sdk should handle: Create, Read, Update, and Delete data records.  
 [`fluree-client`](https://github.com/fluree/fluree-client), however, also makes more complicated interactions a breeze:
- - Upsert, entities provided to this function are created in the dataset if they don't already exist and are updated if they do.
- - Delete, passing entity identifiers (`@id`) to this function makes it super easy to retract entire entities from the database.
- - Cryptographic functions, `fluree-client` wraps a lower-level fluree library called [`fluree/crypto`](https://github.com/fluree/fluree.crypto) and makes it very easy to create new key pairs and `did`s as well as signing queries and transactions before sending them to Fluree so that your applications can take full advantage of Fluree's built-in provenance and access control capabilities.
+ - [Upsert](https://github.com/fluree/fluree-client#upsert). Entities provided to this function are created in the dataset if they don't already exist and are updated if they do.
+ - Delete. Passing entity identifiers (`@id`) to this function makes it super easy to retract entire entities from the database.
+ - Cryptography functions. `fluree-client` wraps a lower-level Fluree library called [`fluree/crypto`](https://github.com/fluree/fluree.crypto) and makes it very easy to [create new cryptographic public/private key pairs](https://github.com/fluree/fluree-client#generateKeyPair) and [`did`s](https://github.com/fluree/fluree-client?tab=readme-ov-file#getDid) as well as automatically signing queries and transactions before sending them to Fluree so that your applications can take full advantage of Fluree's built-in provenance and access control capabilities.
  - and more! Check out [the readme](https://github.com/fluree/fluree-client)!
 
 
@@ -14,7 +14,7 @@ This app relies on [`fluree-client`](https://github.com/fluree/fluree-client) to
 > Note! After opening in StackBlitz, don't forget to update the `.env` file there as described in step 3 in the [Getting Started](#getting-started) below!
 
 ## Quick note on Sample App Design
-Simplicity and minimalism were prioritized in this sample application in order to highlight the usage of [`fluree-client`](https://github.com/fluree/fluree-client) and the interactions with Fluree. Because of this, most application logic resides in the top-level `App.tsx` file and other best practices, like optimistic client-side updates, were eschewed in favor of UI affordances that show when `fluree-client` is interacting with Fluree. The hope is to give you an understanding of how your applications will use `fluree-client` to interact with Fluree.
+Simplicity and minimalism were prioritized in this sample application in order to highlight the usage of [`fluree-client`](https://github.com/fluree/fluree-client) and the interactions with Fluree. Because of this, most application logic resides in the top-level `App.tsx` file and other best practices, like optimistic client-side updates, were eschewed in favor of UI affordances that show when [`fluree-client`](https://github.com/fluree/fluree-client) is interacting with Fluree. The hope is to give you an understanding of how your applications will use [`fluree-client`](https://github.com/fluree/fluree-client) to interact with Fluree.
 
 # Fluree Cloud
 [Fluree Cloud](https://data.flur.ee/) is Fluree's hosted database-as-a-service that makes it easy to build on FlureeDB.  
