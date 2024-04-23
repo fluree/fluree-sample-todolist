@@ -11,7 +11,6 @@ This app relies on [`fluree-client`](https://github.com/fluree/fluree-client) to
 
 ### Try the app out with [StackBlitz](https://stackblitz.com/)!
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/fluree/fluree-sample-todolist?title=Fluree%20Todo%20List%20Sample&file=.env)
-> Note! After opening in StackBlitz, don't forget to update the `.env` file there as described in step 3 in the [Getting Started](#getting-started) below!
 
 ## Quick note on Sample App Design
 Simplicity and minimalism were prioritized in this sample application in order to highlight the usage of [`fluree-client`](https://github.com/fluree/fluree-client) and the interactions with Fluree. Because of this, most application logic resides in the top-level `App.tsx` file and other best practices, like optimistic client-side updates, were eschewed in favor of UI affordances that show when [`fluree-client`](https://github.com/fluree/fluree-client) is interacting with Fluree. The hope is to give you an understanding of how your applications will use [`fluree-client`](https://github.com/fluree/fluree-client) to interact with Fluree.
@@ -34,7 +33,7 @@ There are just a few steps to getting this running on your machine:
    ```
    cd fluree-sample-todolist && npm install
    ```
-3. Update the environment file `.env` that holds the variables for your Fluree Cloud dataset name and API Key (if you don't have a Fluree Cloud dataset yet, [see instructions above](#fluree-cloud)). Here's a sample:
+3. [OPTIONAL] Update the environment file `.env` that holds the variables for your Fluree Cloud dataset name and API Key (if you don't have a Fluree Cloud dataset yet, [see instructions above](#fluree-cloud)). If the `.env` is not updated, these details will be requested at runtime in the application UI. Here's a sample:
    ```
    VITE_FLUREE_DB=fluree-jld/387028092978413
    VITE_FLUREE_API_KEY=zhN1...eR8Ug
