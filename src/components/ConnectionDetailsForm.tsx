@@ -1,5 +1,6 @@
 import React from 'react';
 import { ConnectionDetailsFormProps } from './types';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 
 interface ConnectionDetailsFormElements extends HTMLFormControlsCollection {
   db: HTMLInputElement,
@@ -32,6 +33,12 @@ const ConnectionDetailsForm: React.FC<ConnectionDetailsFormProps> = ({onSubmit})
           Connect
         </button>
       </form>
+      <div className='fluree-button-container'>
+        <a className='fluree-button' href='https://data.flur.ee/' target='_blank'>
+          <span style={{marginRight: 15}}>Open Fluree Cloud</span>
+          <ArrowTopRightOnSquareIcon className='todo-icon'/>
+        </a>
+      </div>
     </main>
   );
 };

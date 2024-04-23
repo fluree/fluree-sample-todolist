@@ -170,3 +170,22 @@ li {
 .todo-done {
   text-decoration: line-through;
 }
+
+.fluree-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.fluree-button {
+  font-weight: 700;
+  color: rgb(9 17 51);
+  padding: .75rem 1.25rem;
+  background-color: rgb(19 198 255);
+  border-radius: 9999px;
+  width: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-top: 2em;
+}
