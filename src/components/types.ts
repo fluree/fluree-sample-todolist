@@ -12,3 +12,12 @@ export type Todo = {
   label: string;
   isDone: boolean;
 }
+
+export interface ConnectionDetailsFormProps {
+  onSubmit: (cxnDetails: ConnectionDetails) => void;
+}
+
+export type ConnectionDetails = {
+  db: string;
+  key: string;
+}

@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
 import { FlureeClient } from '@fluree/fluree-client';
 import { ContextStatement } from '@fluree/fluree-client/dist/types/ContextTypes';
+import { ConnectionDetails } from '../components/types';
 
-const useFlureeClient = (db: string, apiKey: string, defaultContext: ContextStatement | undefined) => {
+const useFlureeClient = (db: string, key: string, defaultContext: ContextStatement | undefined) => {
   const [flureeClient, setFlureeClient] = useState<FlureeClient | null>(null);
+  const [connectionDetails, setConnectionDetails] = useState<ConnectionDetails>({db, key})
 
   useEffect(() => {
     const initializeFlureeClient = async () => {
+      if (connectionDetails.db === "doubleclick_to_replace") { return; }
       try {
         const flureeClient = new FlureeClient({
           isFlureeHosted: true,
-          apiKey,
-          ledger: db,
+          apiKey: connectionDetails.key,
+          ledger: connectionDetails.db,
           defaultContext
         });
         await flureeClient.connect();
@@ -22,9 +25,9 @@ const useFlureeClient = (db: string, apiKey: string, defaultContext: ContextStat
     };
 
     initializeFlureeClient();
-  }, [db, apiKey, defaultContext]);
+  }, [connectionDetails, defaultContext]);
 
-  return flureeClient;
+  return {flureeClient, setConnectionDetails};
 };
 
 export default useFlureeClient;
