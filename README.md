@@ -10,7 +10,7 @@ This app relies on [`fluree-client`](https://github.com/fluree/fluree-client) to
 
 
 ### Try the app out with [StackBlitz](https://stackblitz.com/)!
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/fluree/fluree-sample-todolist?title=Fluree%20Todo%20List%20Sample&file=.env)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/fluree/fluree-sample-todolist?title=Fluree%20Todo%20List%20Sample)
 
 ## Quick note on Sample App Design
 Simplicity and minimalism were prioritized in this sample application in order to highlight the usage of [`fluree-client`](https://github.com/fluree/fluree-client) and the interactions with Fluree. Because of this, most application logic resides in the top-level `App.tsx` file and other best practices, like optimistic client-side updates, were eschewed in favor of UI affordances that show when [`fluree-client`](https://github.com/fluree/fluree-client) is interacting with Fluree. The hope is to give you an understanding of how your applications will use [`fluree-client`](https://github.com/fluree/fluree-client) to interact with Fluree.
