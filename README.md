@@ -23,7 +23,9 @@ After logging into [Fluree Cloud](https://data.flur.ee/), just click the big "Cr
 If needed, please follow the instructions on [this docs page](https://developers.flur.ee/docs/nexus/topics/integrating-clients-with-datasets/) for additional help connecting to your new Fluree Cloud dataset from this sample web application.
 
 # Getting started
-There are just a few steps to getting this running on your machine:
+> Make sure you have Node installed (npm comes with it): [Download Node.js Installer](https://nodejs.org/en/download)  
+
+There are just a few steps to getting this app running on your machine:
 
 1. Clone this repo
    ```
